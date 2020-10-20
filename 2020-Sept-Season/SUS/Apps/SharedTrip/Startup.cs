@@ -3,6 +3,7 @@ using SUS.HTTP;
 using SUS.MvcFramework;
 using System.Collections.Generic;
 using SharedTrip;
+using SharedTrip.Services;
 
 namespace BattleCards
 {
@@ -10,7 +11,7 @@ namespace BattleCards
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-           //serviceCollection.Add<IUsersService, UsersService>();
+           serviceCollection.Add<IUsersService, UsersService>();
            //serviceCollection.Add<ICardsService, CardsService>();
         }
 
