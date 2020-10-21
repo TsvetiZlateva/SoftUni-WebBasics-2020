@@ -9,7 +9,7 @@ namespace SharedTrip.Services
     {
         void Create(TripInputModel input);
 
-        TripInputModel GetTripId(string id);
+        TripInputModel GetById(string id);
 
         IEnumerable<TripInputModel> GetAll();
 

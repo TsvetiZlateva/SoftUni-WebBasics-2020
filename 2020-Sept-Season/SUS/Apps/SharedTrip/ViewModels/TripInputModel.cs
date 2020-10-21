@@ -4,6 +4,8 @@ namespace SharedTrip.Models
 {
     public class TripInputModel
     {
+        public string Id { get; set; }
+
         public string StartPoint { get; set; }
 
         public string EndPoint { get; set; }

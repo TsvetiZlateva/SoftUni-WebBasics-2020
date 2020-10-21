@@ -33,17 +33,28 @@ namespace SharedTrip.Services
             db.SaveChanges();
         }
 
-  
 
-        public TripInputModel GetTripId(string id)
+
+        public TripInputModel GetById(string tripId)
         {
-            throw new NotImplementedException();
+            return db.Trips.Where(t => t.Id == tripId)
+                .Select(t => new TripInputModel
+                {
+                    Id = t.Id,
+                    StartPoint = t.StartPoint,
+                    EndPoint = t.EndPoint,
+                    DepartureTime = t.DepartureTime,
+                    Seats = t.Seats,
+                    Description = t.Description,
+                    ImagePath = t.ImagePath
+                }).FirstOrDefault();
         }
 
         public IEnumerable<TripInputModel> GetAll()
         {
             return db.Trips.Select(t => new TripInputModel
             {
+                Id = t.Id,
                 StartPoint = t.StartPoint,
                 EndPoint = t.EndPoint,
                 DepartureTime = t.DepartureTime,
