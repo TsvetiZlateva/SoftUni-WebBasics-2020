@@ -62,5 +62,21 @@ namespace SharedTrip.Services
             }).ToList();
         }
 
+        public void AddToTrip(string userId, string tripId)
+        {
+            this.db.UserTrips.Add(new UserTrip
+            {
+                UserId = userId,
+                TripId = tripId
+            });
+
+            db.Trips.Find(tripId).Seats--;
+            db.SaveChanges();
+        }
+
+        public bool IsUserAddedToTrip(string userId, string tripId)
+        {
+            return this.db.UserTrips.Any(x => x.UserId == userId && x.TripId == tripId);
+        }
     }
 }
