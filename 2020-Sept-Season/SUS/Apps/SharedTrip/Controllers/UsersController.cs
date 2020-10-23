@@ -31,6 +31,11 @@ namespace SharedTrip.Controllers
         [HttpPost]
         public HttpResponse Login(string username, string password)
         {
+            if (this.IsUserSignedIn())
+            {
+                return this.Redirect("/Trips/All");
+            }
+
             var userId = this.usersService.GetUserId(username, password);
             if (userId == null)
             {
@@ -54,6 +59,11 @@ namespace SharedTrip.Controllers
         [HttpPost]
         public HttpResponse Register(RegisterInputModel input)
         {
+            if (this.IsUserSignedIn())
+            {
+                return this.Redirect("/Trips/All");
+            }
+
             if (string.IsNullOrWhiteSpace(input.Username) || input.Username.Length < 5 || input.Username.Length > 20)
             {
                 return this.Error("Username is required and should be between 5 and 20 characters.");

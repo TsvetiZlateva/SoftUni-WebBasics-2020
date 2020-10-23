@@ -101,7 +101,7 @@ namespace SharedTrip.Controllers
             }
 
             this.tripsService.AddToTrip(userId, tripId);
-            return this.Redirect("/");
+            return this.Redirect("/Trips/All");
         }
     }
 }
