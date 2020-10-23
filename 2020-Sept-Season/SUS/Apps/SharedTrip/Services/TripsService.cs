@@ -2,6 +2,7 @@
 using SharedTrip.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -23,7 +24,7 @@ namespace SharedTrip.Services
             {
                 StartPoint = input.StartPoint,
                 EndPoint = input.EndPoint,
-                DepartureTime = input.DepartureTime,
+                DepartureTime = DateTime.Parse(input.DepartureTime),
                 Seats = input.Seats,
                 Description = input.Description,
                 ImagePath = input.ImagePath
@@ -43,7 +44,7 @@ namespace SharedTrip.Services
                     Id = t.Id,
                     StartPoint = t.StartPoint,
                     EndPoint = t.EndPoint,
-                    DepartureTime = t.DepartureTime,
+                    DepartureTime = t.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
                     Seats = t.Seats,
                     Description = t.Description,
                     ImagePath = t.ImagePath
@@ -57,7 +58,7 @@ namespace SharedTrip.Services
                 Id = t.Id,
                 StartPoint = t.StartPoint,
                 EndPoint = t.EndPoint,
-                DepartureTime = t.DepartureTime,
+                DepartureTime = t.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
                 Seats = t.Seats
             }).ToList();
         }
