@@ -6,10 +6,10 @@ namespace SharedTrip.Data
     {
         public string UserId { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         public string TripId { get; set; }
 
-        public Trip Trip { get; set; }
+        public virtual Trip Trip { get; set; }
     }
 }

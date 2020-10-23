@@ -93,6 +93,11 @@ namespace SharedTrip.Controllers
                 return this.Redirect("/");
             }
 
+            if (!this.tripsService.IsThereAvailableSeats(tripId))
+            {
+                return this.Error("Sorry, there are no available seats.");
+            }
+
             var userId = this.GetUserId();
 
             if (this.tripsService.IsUserAddedToTrip(userId, tripId))

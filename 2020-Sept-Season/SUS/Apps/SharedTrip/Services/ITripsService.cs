@@ -17,5 +17,7 @@ namespace SharedTrip.Services
 
         bool IsUserAddedToTrip(string userId, string tripId);
 
+        bool IsThereAvailableSeats(string tripId);
+
     }
 }

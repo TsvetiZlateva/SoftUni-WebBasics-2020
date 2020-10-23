@@ -30,6 +30,6 @@ namespace SharedTrip.Data
 
         public string ImagePath { get; set; }
 
-        public ICollection<UserTrip> UserTrips { get; set; }
+        public virtual ICollection<UserTrip> UserTrips { get; set; }
     }
 }

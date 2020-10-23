@@ -79,5 +79,10 @@ namespace SharedTrip.Services
         {
             return this.db.UserTrips.Any(x => x.UserId == userId && x.TripId == tripId);
         }
+
+        public bool IsThereAvailableSeats(string tripId)
+        {
+            return this.db.Trips.Find(tripId).Seats > 0;
+        }
     }
 }
